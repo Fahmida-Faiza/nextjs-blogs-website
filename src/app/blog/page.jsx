@@ -12,7 +12,7 @@ const getData = async () => {
 const BlogPage =async () => {
   const posts = await getData();
   return (
-    <div className={styles.container}>BlogPage
+    <div className="bg-red-500">BlogPage
 
 
 

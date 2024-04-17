@@ -1,9 +1,21 @@
+// FETCH DATA WITH AN API
+const getData = async (slug) => {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
 
 
-const SinglePostPage = () => {
+  return res.json();
+};
+
+
+const SinglePostPage = async ({ params }) => {
+ const {slug} = params;
+ const post = await getData(slug)
+
   return (
-    <div>SinglePostPage</div>
-  )
-}
+   <div>
+ <p> title there:{post.title}</p>
+   </div>
+  );
+};
 
-export default SinglePostPage
+export default SinglePostPage;
