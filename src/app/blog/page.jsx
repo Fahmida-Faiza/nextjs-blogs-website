@@ -12,13 +12,13 @@ const getData = async () => {
 const BlogPage =async () => {
   const posts = await getData();
   return (
-    <div className="bg-red-500">BlogPage
+    <div className="gap-5 grid grid-cols-3 ">
 
 
 
       {posts.map((post) => (
         <div key={post.id}>
-          <PostCard post={post} />
+          <PostCard post={post}  />
         </div>
       ))}
     </div>
