@@ -1,20 +1,24 @@
-import Image from "next/image"
-import styles from "./postCard.module.css"
+
+
 import Link from "next/link"
 
 const PostCard = ({post}) => {
   return (
-    <div className="border bg-red-500 mx-auto text-white">
-      <div className={styles.top}>
-        {post.img && <div className={styles.imgContainer}>
-          <Image src={post.img} alt="" fill className={styles.img}/>
-        </div>}
-        <span className={styles.date}>{post.createdAt?.toString().slice(4, 16)}</span>
-      </div>
-      <div className={styles.bottom}>
-        <h1 className={styles.title}>{post.title}</h1>
-        <p className={styles.desc}>{post.body}</p>
-        <Link className={styles.link} href={`/blog/${post.id}`}>READ MORE</Link>
+    <div className="border bg-red-500  text-white">
+    
+   
+
+      <div className="card w-96  bg-base-100 shadow-xl">
+        <figure className="px-10 pt-10">
+          <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+        </figure>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">title:{post.title}</h2>
+          <p>description:{post.body}</p>
+          <div className="card-actions">
+          <button className="btn btn-secondary"> <Link href={`/blog/${post.id}`}>Read More</Link></button>
+          </div>
+        </div>
       </div>
     </div>
   )
