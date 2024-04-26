@@ -1,50 +1,65 @@
+import Image from "next/image";
+import styles from "./singlePost.module.css";
 import PostUser from "@/components/postUser/postUser";
+import { Suspense } from "react";
 import { getPost } from "@/lib/data";
 
 // FETCH DATA WITH AN API
 // const getData = async (slug) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
+//   if (!res.ok) {
+//     throw new Error("Something went wrong");
+//   }
 
 //   return res.json();
 // };
 
+// export const generateMetadata = async ({ params }) => {
+//   const { slug } = params;
+
+//   const post = await getPost(slug);
+
+//   return {
+//     title: post.title,
+//     description: post.desc,
+//   };
+// };
 
 const SinglePostPage = async ({ params }) => {
   const { slug } = params;
-  // const post = await getData(slug)
-  const post = await getPost(slug)
+
+  // FETCH DATA WITH AN API
+  // const post = await getData(slug);
+
+  // FETCH DATA WITHOUT AN API
+  const post = await getPost(slug);
+  console.log(post)
 
   return (
-    <div>
-
-
-
- 
-
-        <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex-col lg:flex-row">
-            <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-            <div>
-              <h1 className="text-3xl font-bold">{post.id}. {post.title}</h1>
-            <div className="py-6">
-              <p>{post.body} {post.body} {post.body}</p>
-            </div>
-              {/* <button className="btn btn-primary">Get Started</button> */}
-
-
-
-              <PostUser userId={post.userId}/>
-              <div>
-              <span > Published </span>
-              <span>01.01.2024</span>
-              </div>
-            </div>
+    <div className={styles.container}>
+      {post.img && (
+        <div className={styles.imgContainer}>
+          <Image src={post.img} alt="" fill className={styles.img} />
+        </div>
+      )}
+      <div className={styles.textContainer}>
+        <h1 className={styles.title}>{post?.title}</h1>
+        <div className={styles.detail}>
+          {post && (
+            
+              <PostUser userId={post.userId} />
+           
+          )}
+          <div className={styles.detailText}>
+            <span className={styles.detailTitle}>Published</span>
+            <span className={styles.detailValue}>
+             
+            </span>
           </div>
-
+        </div>
+        <div className={styles.content}>{post?.body}</div>
       </div>
-
-
     </div>
   );
 };
