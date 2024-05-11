@@ -5,9 +5,7 @@ import Link from "next/link"
 const Navbar = () => {
 
 
- 
 
-    
     
   return (
     // <div className="grid gap-x-8 bg-white">
@@ -24,7 +22,8 @@ const Navbar = () => {
           </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             <li><Link href='/'>Home</Link></li>
-            <li><Link href="/blog">Blog</Link></li>
+            <li><Link href="/">Blog</Link></li>
+           
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
@@ -32,7 +31,8 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><Link href="/">Home</Link ></li>
-          <li><Link href="/blog">Blog</Link></li>
+          <li><Link href="/">Blog</Link></li>
+        
         </ul>
       </div>
       <div className="navbar-end">
