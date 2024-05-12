@@ -8,11 +8,7 @@ const Navbar = () => {
 
     
   return (
-    // <div className="grid gap-x-8 bg-white">
-    //     <Link href="/about">About</Link>
-    //     <Link href="/blog">blog</Link>
-     
-    // </div>
+ 
 
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -26,7 +22,7 @@ const Navbar = () => {
            
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Blog</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
